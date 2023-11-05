@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8871cc295f10d4022878b75084d67dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  _movementSpeed: 5
 --- !u!4 &592425878
 Transform:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ Transform:
   - {fileID: 1900233024}
   - {fileID: 963194228}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &592425879
 Rigidbody:
@@ -279,7 +279,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -365,6 +365,84 @@ Transform:
   m_Father: {fileID: 592425878}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 53.368, y: 0, z: 0}
+--- !u!1 &1050243749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1050243751}
+  - component: {fileID: 1050243750}
+  m_Layer: 0
+  m_Name: PoolingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1050243750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050243749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff6056a17fdb6f40864541f6910a34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolItems:
+  - PoolObject: {fileID: 2077762798836419196, guid: 9bdca5e69db1845c2a67c7508c2496f2, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+  - PoolObject: {fileID: 3151346068619293708, guid: 5b8a64f1dfa56cc4688a48564fa8d199, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+  - PoolObject: {fileID: 3151346068619293708, guid: d612324acc397f34ba3857f6e57626e6, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+  - PoolObject: {fileID: 3151346068619293708, guid: 179f3c66dae7dfe49900d34114291a23, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+  - PoolObject: {fileID: 3151346068619293708, guid: 32852c5498f3cef45bd58a50c8f68973, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+  - PoolObject: {fileID: 3151346068619293708, guid: 46778469f60c76842ac1fb2fa63f926f, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+  - PoolObject: {fileID: 3928719045734982923, guid: 5980a4325cfc924488084019dec8b708, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+  - PoolObject: {fileID: 9000250110524018727, guid: 924cf83baff404949a5f1b61664a7053, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+  - PoolObject: {fileID: 9000250110524018727, guid: b96f686e15ca94c6bb9a87e426d03bbf, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+  - PoolObject: {fileID: 9000250110524018727, guid: 9b6f95f7422b1a442ac42d5eb1507ddc, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+  - PoolObject: {fileID: 3928719045734982923, guid: d5229686b0bc248beaefc5e7dc8c547b, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+--- !u!4 &1050243751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050243749}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1734973905
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,11 +472,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0189ccea1b14c4386661d4f5d78639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkListSO: {fileID: 11400000, guid: a5fb99540c72d9641bf44e6b92be9eb7, type: 2}
-  player: {fileID: 592425878}
-  chunkWidth: 10
-  radiusToGenerate: 4.5
-  generatedChunksPositionList: []
+  _chunkListSO: {fileID: 11400000, guid: a5fb99540c72d9641bf44e6b92be9eb7, type: 2}
+  _player: {fileID: 592425878}
+  _chunkWidth: 10
+  _radiusToGenerate: 5
+  _generatedChunksPositionList: []
 --- !u!4 &1734973907
 Transform:
   m_ObjectHideFlags: 0
@@ -412,7 +490,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1900233023
 GameObject:

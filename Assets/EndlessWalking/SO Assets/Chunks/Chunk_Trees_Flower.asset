@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2abaf5961e15f8469881163b6238715, type: 3}
   m_Name: Chunk_Trees_Flower
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3151346068619293708, guid: 32852c5498f3cef45bd58a50c8f68973, type: 3}
-  obstacles: {fileID: 11400000, guid: 6cf9e5485c5d5fa40b6f58bc75d3681f, type: 2}
-  hasBorders: 0
+  Prefab: {fileID: 3151346068619293708, guid: 32852c5498f3cef45bd58a50c8f68973, type: 3}
+  ObstacleList: {fileID: 11400000, guid: 6cf9e5485c5d5fa40b6f58bc75d3681f, type: 2}
+  HasBorders: 0
+  EntranceConfig:
+    EntranceAmount: 

@@ -7,7 +7,7 @@ public class ChunkSpawner
         float chunkSpawnXPosition, float chunkSpawnZPosition, Quaternion chunkRotation)
     {
         Vector3 spawnPosition = new Vector3(chunkSpawnXPosition, 0, chunkSpawnZPosition);
-        GameObject newChunk = Object.Instantiate(prefab, spawnPosition, chunkRotation);
+        GameObject newChunk = PoolingManager.Instance.UseObject(prefab, spawnPosition, chunkRotation);
         positionList.Add(newChunk.transform.position);
     }
 }

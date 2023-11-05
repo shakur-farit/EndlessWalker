@@ -5,7 +5,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 6674254768035795630}
     m_Modifications:
     - target: {fileID: 65452367654831338, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
@@ -65,23 +64,18 @@ PrefabInstance:
       value: Rock (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
---- !u!4 &1300377173972201837 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 65452367654831338, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
-  m_PrefabInstance: {fileID: 1361026837238904199}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3639416369850384040
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 6674254768035795630}
     m_Modifications:
+    - target: {fileID: 65452367654831338, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 65452367654831338, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3409
@@ -139,23 +133,18 @@ PrefabInstance:
       value: Rock (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
---- !u!4 &3632510934832527938 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 65452367654831338, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
-  m_PrefabInstance: {fileID: 3639416369850384040}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3978930243919912585
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 6674254768035795630}
     m_Modifications:
+    - target: {fileID: 65452367654831338, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 65452367654831338, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1920856
@@ -213,21 +202,12 @@ PrefabInstance:
       value: Rock (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
---- !u!4 &4026067903490153059 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 65452367654831338, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
-  m_PrefabInstance: {fileID: 3978930243919912585}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5661861276859019676
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1300783333642576690, guid: 0b8d5badaaa874a3e9abc4a846a6ab42, type: 3}
@@ -280,7 +260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3636013618376270267, guid: 0b8d5badaaa874a3e9abc4a846a6ab42, type: 3}
       propertyPath: m_Name
-      value: Obstacle_Mount_2
+      value: Obstacle_Rock_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636013618376270267, guid: 0b8d5badaaa874a3e9abc4a846a6ab42, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4719632318472731689, guid: 0b8d5badaaa874a3e9abc4a846a6ab42, type: 3}
       propertyPath: m_Mesh
@@ -315,22 +299,6 @@ PrefabInstance:
       value: 0.17002189
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5535270366356621834, guid: 0b8d5badaaa874a3e9abc4a846a6ab42, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1300783333642576690, guid: 0b8d5badaaa874a3e9abc4a846a6ab42, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8563830442714809128}
-    - targetCorrespondingSourceObject: {fileID: 1300783333642576690, guid: 0b8d5badaaa874a3e9abc4a846a6ab42, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3632510934832527938}
-    - targetCorrespondingSourceObject: {fileID: 1300783333642576690, guid: 0b8d5badaaa874a3e9abc4a846a6ab42, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1300377173972201837}
-    - targetCorrespondingSourceObject: {fileID: 1300783333642576690, guid: 0b8d5badaaa874a3e9abc4a846a6ab42, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4026067903490153059}
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b8d5badaaa874a3e9abc4a846a6ab42, type: 3}
 --- !u!4 &6674254768035795630 stripped
 Transform:
@@ -342,9 +310,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 6674254768035795630}
     m_Modifications:
+    - target: {fileID: 65452367654831338, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 65452367654831338, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -402,12 +373,4 @@ PrefabInstance:
       value: Rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
---- !u!4 &8563830442714809128 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 65452367654831338, guid: 9516ee3c3e045af4289157625912bbe6, type: 3}
-  m_PrefabInstance: {fileID: 8516411344624748482}
-  m_PrefabAsset: {fileID: 0}

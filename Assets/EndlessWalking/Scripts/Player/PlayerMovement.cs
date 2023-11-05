@@ -1,30 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[DisallowMultipleComponent]
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float _movementSpeed = 5f;
 
-    private Rigidbody rb;
+    private Rigidbody _rigidbody;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        Movement();
+        Move();
     }
 
-    private void Movement()
+    private void Move()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = new Vector3(horizontalInput, 0f, verticalInput);
 
-        rb.velocity = direction * moveSpeed;
+        _rigidbody.velocity = direction * _movementSpeed;
     }
 }

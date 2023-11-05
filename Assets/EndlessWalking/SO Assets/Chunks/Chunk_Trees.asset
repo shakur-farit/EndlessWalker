@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2abaf5961e15f8469881163b6238715, type: 3}
   m_Name: Chunk_Trees
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2077762798836419196, guid: 9bdca5e69db1845c2a67c7508c2496f2, type: 3}
-  obstacles: {fileID: 11400000, guid: 6cf9e5485c5d5fa40b6f58bc75d3681f, type: 2}
-  hasBorders: 0
+  Prefab: {fileID: 2077762798836419196, guid: 9bdca5e69db1845c2a67c7508c2496f2, type: 3}
+  ObstacleList: {fileID: 11400000, guid: 6cf9e5485c5d5fa40b6f58bc75d3681f, type: 2}
+  HasBorders: 0
+  EntranceConfig:
+    EntranceAmount: 

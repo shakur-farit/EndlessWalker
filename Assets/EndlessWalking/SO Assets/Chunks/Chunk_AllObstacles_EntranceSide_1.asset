@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2abaf5961e15f8469881163b6238715, type: 3}
-  m_Name: Chunk_Other_Skeleton
+  m_Name: Chunk_AllObstacles_EntranceSide_1
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 3151346068619293708, guid: 46778469f60c76842ac1fb2fa63f926f, type: 3}
-  ObstacleList: {fileID: 11400000, guid: 0cc864c2bfb11c04d8b47dd13535fe7c, type: 2}
-  HasBorders: 0
+  Prefab: {fileID: 3151346068619293708, guid: 5b8a64f1dfa56cc4688a48564fa8d199, type: 3}
+  ObstacleList: {fileID: 11400000, guid: 60c40eff3101e8048b62077ed72178d2, type: 2}
+  HasBorders: 1
   EntranceConfig:
-    EntranceAmount: 
+    EntranceAmount: 02000000

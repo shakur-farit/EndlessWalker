@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4336223d627948e4e9f761f06700d9ea, type: 3}
-  m_Name: ObstacleList_Other
+  m_Script: {fileID: 11500000, guid: 6d6ecc87e09423444ae21765d04502c2, type: 3}
+  m_Name: ChunkList 1
   m_EditorClassIdentifier: 
-  obstacleList:
-  - {fileID: 11400000, guid: fcdd14dab8118b94e8c0b1b0a937ac0f, type: 2}
-  - {fileID: 11400000, guid: 67539286b24906040b2f071ff3afb14b, type: 2}
+  ChunkList:
+  - {fileID: 11400000, guid: d159f3c3ee8a03d47ae941af49c81128, type: 2}

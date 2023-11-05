@@ -10,11 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4336223d627948e4e9f761f06700d9ea, type: 3}
-  m_Name: ObstacleList_AllObstacles
+  m_Name: ObstacleList_Mountains
   m_EditorClassIdentifier: 
-  obstacleList:
+  ObstacleList:
   - {fileID: 11400000, guid: fa1d52765e08f416a9f9cd5e135c0bb2, type: 2}
   - {fileID: 11400000, guid: 2c45c0cab66ae8048b9adc3cb51791c4, type: 2}
-  - {fileID: 11400000, guid: 6085105645f9f4853bab0759580986b0, type: 2}
-  - {fileID: 11400000, guid: fcdd14dab8118b94e8c0b1b0a937ac0f, type: 2}
-  - {fileID: 11400000, guid: 67539286b24906040b2f071ff3afb14b, type: 2}

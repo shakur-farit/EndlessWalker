@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 7937931225087622327}
   m_Layer: 0
   m_Name: Chunk
-  m_TagString: Untagged
+  m_TagString: Chunk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4579676990283433060
 Transform:
   m_ObjectHideFlags: 0

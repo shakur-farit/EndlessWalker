@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4336223d627948e4e9f761f06700d9ea, type: 3}
-  m_Name: ObstacleList_Mountains
+  m_Script: {fileID: 11500000, guid: 42808400efe964e5e91500fdde48f0cf, type: 3}
+  m_Name: Obstacle_Rock_1
   m_EditorClassIdentifier: 
-  obstacleList:
-  - {fileID: 11400000, guid: fa1d52765e08f416a9f9cd5e135c0bb2, type: 2}
-  - {fileID: 11400000, guid: 2c45c0cab66ae8048b9adc3cb51791c4, type: 2}
+  ObstacleName: Rock_1
+  Prefab: {fileID: 9000250110524018727, guid: b96f686e15ca94c6bb9a87e426d03bbf, type: 3}

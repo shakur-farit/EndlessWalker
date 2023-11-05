@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42808400efe964e5e91500fdde48f0cf, type: 3}
   m_Name: Obstacle_Low
   m_EditorClassIdentifier: 
-  obstacleName: Low
-  prefab: {fileID: 9000250110524018727, guid: 924cf83baff404949a5f1b61664a7053, type: 3}
+  ObstacleName: Low
+  Prefab: {fileID: 9000250110524018727, guid: 924cf83baff404949a5f1b61664a7053, type: 3}

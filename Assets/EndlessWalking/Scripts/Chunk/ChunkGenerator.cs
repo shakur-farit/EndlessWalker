@@ -1,25 +1,34 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class ChunkGenerator : MonoBehaviour
 {
-    public ChunkListSO chunkListSO;
-    public Transform player;
-    public float chunkWidth = 10f;
-    public float radiusToGenerate = 5f;
+    [SerializeField] private ChunkListSO _chunkListSO;
+    [SerializeField] private Transform _player;
+    [SerializeField] private float _chunkWidth = 10f;
+    [SerializeField] private float _radiusToGenerate = 5f;
 
-    public List<Vector3> generatedChunksPositionList = new List<Vector3>();
+    private List<Vector3> _generatedChunksPositionList = new List<Vector3>();
 
-    private ChunkSpawner chunkSpawner;
-    private ObstacleGenerator obstacleGenerator;
-    private CurrentChunkPositionFinder playerChunkPositionFinder;
-    private ChunkExistenceChecker chunkExistenceChecker;
+    private ChunkSpawner _chunkSpawner;
+    private ObstacleGenerator _obstacleGenerator;
+    private CurrentChunkPositionFinder _playerChunkPositionFinder;
+    private ChunkExistenceChecker _chunkExistenceChecker;
+    private ChunkRotator _chunkRotator;
+
+    // value for the correct rotate at chunk spawned on...
+    private const float _valueOnNorthSpawn = 180f; // north side
+    private const float _valueOnSouthSpawn = 0f; // south side
+    private const float _valueOnEastSpawn = 90f; // east side
+    private const float _valueOnWestSpawn = 270f; // west side
 
     private void Start()
     {
-        playerChunkPositionFinder = new CurrentChunkPositionFinder(player);
-        chunkExistenceChecker = new ChunkExistenceChecker();
+        _playerChunkPositionFinder = new CurrentChunkPositionFinder();
+        _chunkExistenceChecker = new ChunkExistenceChecker();
+        _chunkSpawner = new ChunkSpawner();
+        _obstacleGenerator = new ObstacleGenerator();
+        _chunkRotator = new ChunkRotator();
 
         SpawnChunk(0f, 0f, 0f);
     }
@@ -31,41 +40,55 @@ public class ChunkGenerator : MonoBehaviour
 
     private void TryToSpawn()
     {
-        Vector3 playerPosition = player.position;
-        Vector3 currentChunkPosition = playerChunkPositionFinder.
-            FindPlayerCurrentChunkPosition(generatedChunksPositionList);
+        Vector3 playerPosition = _player.position;
 
-        if (playerPosition.x > currentChunkPosition.x + radiusToGenerate &&
-            !chunkExistenceChecker.ChunkExists(generatedChunksPositionList,
-            currentChunkPosition.x + chunkWidth,
-            currentChunkPosition.z))
+        Vector3 currentChunkPosition = _playerChunkPositionFinder.
+            FindChunkOnPlayerPosition(_generatedChunksPositionList, _player.transform);
+
+        // Spawn chunk when player go beyond the _radiusToGenerate in a certain direction
+        if (playerPosition.x > currentChunkPosition.x + _radiusToGenerate && 
+            !_chunkExistenceChecker.ChunkExists
+               ( _generatedChunksPositionList,
+               currentChunkPosition.x + _chunkWidth,
+               currentChunkPosition.z
+               )
+           )
         {
-            SpawnChunk(currentChunkPosition.x + chunkWidth, currentChunkPosition.z, 90f);
+            SpawnChunk(currentChunkPosition.x + _chunkWidth, currentChunkPosition.z, _valueOnEastSpawn);
         }
-        else if (playerPosition.x < currentChunkPosition.x - radiusToGenerate &&
-            !chunkExistenceChecker.ChunkExists(generatedChunksPositionList,
-            currentChunkPosition.x - chunkWidth,
-            currentChunkPosition.z))
+        else if (playerPosition.x < currentChunkPosition.x - _radiusToGenerate && 
+                !_chunkExistenceChecker.ChunkExists
+                   (_generatedChunksPositionList,
+                   currentChunkPosition.x - _chunkWidth,
+                   currentChunkPosition.z
+                   )
+                )
         {
-            SpawnChunk(currentChunkPosition.x - chunkWidth, currentChunkPosition.z, 270f);
+            SpawnChunk(currentChunkPosition.x - _chunkWidth, currentChunkPosition.z, _valueOnWestSpawn);
         }
-        else if (playerPosition.z > currentChunkPosition.z + radiusToGenerate &&
-            !chunkExistenceChecker.ChunkExists(generatedChunksPositionList,
-            currentChunkPosition.x,
-            currentChunkPosition.z + chunkWidth))
+        else if (playerPosition.z > currentChunkPosition.z + _radiusToGenerate &&
+                !_chunkExistenceChecker.ChunkExists
+                   (_generatedChunksPositionList,
+                   currentChunkPosition.x,
+                   currentChunkPosition.z + _chunkWidth
+                   )
+                )
         {
-            SpawnChunk(currentChunkPosition.x, currentChunkPosition.z + chunkWidth, 0f);
+            SpawnChunk(currentChunkPosition.x, currentChunkPosition.z + _chunkWidth, _valueOnSouthSpawn);
         }
-        else if (playerPosition.z < currentChunkPosition.z - radiusToGenerate &&
-            !chunkExistenceChecker.ChunkExists(generatedChunksPositionList,
-            currentChunkPosition.x,
-            currentChunkPosition.z - chunkWidth))
+        else if (playerPosition.z < currentChunkPosition.z - _radiusToGenerate &&
+                 !_chunkExistenceChecker.ChunkExists
+                   (_generatedChunksPositionList,
+                   currentChunkPosition.x,
+                   currentChunkPosition.z - _chunkWidth
+                   )
+                )
         {
-            SpawnChunk(currentChunkPosition.x, currentChunkPosition.z - chunkWidth, 180f);
+            SpawnChunk(currentChunkPosition.x, currentChunkPosition.z - _chunkWidth, _valueOnNorthSpawn);
         }
     }
 
-    private void SpawnChunk(float chunkXPosition, float chunkZPosition, float dependingOnSpawnSideRotate)
+    private void SpawnChunk(float chunkXPosition, float chunkZPosition, float valueToActualRotate)
     {
         ChunkSO chunk = GetChunk();
 
@@ -74,27 +97,23 @@ public class ChunkGenerator : MonoBehaviour
 
         Quaternion chunkRotation = Quaternion.identity;
         
-
-        if (chunk.hasBorders)
+        if (chunk.HasBorders)
         {
-            ChunkRotator chunkRotator = new ChunkRotator();
-            chunkRotation = chunkRotator.GetValueToRotate(chunk, dependingOnSpawnSideRotate);
+            chunkRotation = _chunkRotator.GetValueToRotate(chunk, valueToActualRotate);
         }
 
-        chunkSpawner = new ChunkSpawner();
-
-        chunkSpawner.SpawnChunk(chunk.prefab, generatedChunksPositionList,
+        _chunkSpawner.SpawnChunk(chunk.Prefab, _generatedChunksPositionList,
             chunkXPosition, chunkZPosition, chunkRotation);
 
-        obstacleGenerator = new ObstacleGenerator();
-        obstacleGenerator.SpawnObstacle(chunk, chunkXPosition, chunkZPosition);
+        _obstacleGenerator.SpawnObstacle(chunk, chunkXPosition, chunkZPosition);
     }
 
     public ChunkSO GetChunk()
     {
-        List<ChunkSO> chunks = chunkListSO.chunkList;
+        List<ChunkSO> chunks = _chunkListSO.ChunkList;
+
         int randomIndex = Random.Range(0, chunks.Count - 1);
-        Debug.Log(chunks[randomIndex].name);
+
         return chunks[randomIndex];
     }
 }

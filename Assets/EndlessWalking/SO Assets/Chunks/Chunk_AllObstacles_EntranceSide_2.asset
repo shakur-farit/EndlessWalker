@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2abaf5961e15f8469881163b6238715, type: 3}
-  m_Name: Chunk_AllObstacles_Border_3
+  m_Name: Chunk_AllObstacles_EntranceSide_2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3151346068619293708, guid: 5b8a64f1dfa56cc4688a48564fa8d199, type: 3}
-  obstacles: {fileID: 11400000, guid: 60c40eff3101e8048b62077ed72178d2, type: 2}
-  hasBorders: 1
-  entranceConfig:
-    entranceAmount: 02000000
+  Prefab: {fileID: 3151346068619293708, guid: d612324acc397f34ba3857f6e57626e6, type: 3}
+  ObstacleList: {fileID: 11400000, guid: 60c40eff3101e8048b62077ed72178d2, type: 2}
+  HasBorders: 1
+  EntranceConfig:
+    EntranceAmount: 0200000004000000

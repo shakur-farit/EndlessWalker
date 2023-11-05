@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2abaf5961e15f8469881163b6238715, type: 3}
   m_Name: Chunk_Other
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2077762798836419196, guid: 9bdca5e69db1845c2a67c7508c2496f2, type: 3}
-  obstacles: {fileID: 11400000, guid: 0cc864c2bfb11c04d8b47dd13535fe7c, type: 2}
-  hasBorders: 0
+  Prefab: {fileID: 2077762798836419196, guid: 9bdca5e69db1845c2a67c7508c2496f2, type: 3}
+  ObstacleList: {fileID: 11400000, guid: 0cc864c2bfb11c04d8b47dd13535fe7c, type: 2}
+  HasBorders: 0
+  EntranceConfig:
+    EntranceAmount: 

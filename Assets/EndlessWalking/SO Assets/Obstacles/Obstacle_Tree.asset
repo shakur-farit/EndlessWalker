@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42808400efe964e5e91500fdde48f0cf, type: 3}
   m_Name: Obstacle_Tree
   m_EditorClassIdentifier: 
-  obstacleName: Tree
-  prefab: {fileID: 3928719045734982923, guid: d5229686b0bc248beaefc5e7dc8c547b, type: 3}
+  ObstacleName: Tree
+  Prefab: {fileID: 3928719045734982923, guid: d5229686b0bc248beaefc5e7dc8c547b, type: 3}
