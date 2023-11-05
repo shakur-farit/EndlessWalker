@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2abaf5961e15f8469881163b6238715, type: 3}
+  m_Name: Chunk_AllObstacles_Flower
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3151346068619293708, guid: 32852c5498f3cef45bd58a50c8f68973, type: 3}
+  obstacles: {fileID: 11400000, guid: 60c40eff3101e8048b62077ed72178d2, type: 2}
+  hasBorders: 0
