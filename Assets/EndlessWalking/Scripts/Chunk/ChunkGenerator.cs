@@ -3,9 +3,16 @@ using UnityEngine;
 
 public class ChunkGenerator : MonoBehaviour
 {
+    [Header("References")]
+    [Tooltip("Populate with ChunkList SO object")]
     [SerializeField] private ChunkListSO _chunkListSO;
+    [Tooltip("Populate with Player game object")]
     [SerializeField] private Transform _player;
+
+    [Header("Chunk Settings")]
+    [Tooltip("Width of the chunk")]
     [SerializeField] private float _chunkWidth = 10f;
+    [Tooltip("Distance from the center, crossing which a chunk is created")]
     [SerializeField] private float _radiusToGenerate = 5f;
 
     private List<Vector3> _generatedChunksPositionList = new List<Vector3>();
@@ -16,7 +23,7 @@ public class ChunkGenerator : MonoBehaviour
     private ChunkExistenceChecker _chunkExistenceChecker;
     private ChunkRotator _chunkRotator;
 
-    // value for the correct rotate at chunk spawned on...
+    // Value for the correct rotate at chunk spawned on...
     private const float _valueOnNorthSpawn = 180f; // north side
     private const float _valueOnSouthSpawn = 0f; // south side
     private const float _valueOnEastSpawn = 90f; // east side
@@ -47,7 +54,7 @@ public class ChunkGenerator : MonoBehaviour
 
         // Spawn chunk when player go beyond the _radiusToGenerate in a certain direction
         if (playerPosition.x > currentChunkPosition.x + _radiusToGenerate && 
-            !_chunkExistenceChecker.ChunkExists
+            !_chunkExistenceChecker.IsChunkExists
                ( _generatedChunksPositionList,
                currentChunkPosition.x + _chunkWidth,
                currentChunkPosition.z
@@ -57,7 +64,7 @@ public class ChunkGenerator : MonoBehaviour
             SpawnChunk(currentChunkPosition.x + _chunkWidth, currentChunkPosition.z, _valueOnEastSpawn);
         }
         else if (playerPosition.x < currentChunkPosition.x - _radiusToGenerate && 
-                !_chunkExistenceChecker.ChunkExists
+                !_chunkExistenceChecker.IsChunkExists
                    (_generatedChunksPositionList,
                    currentChunkPosition.x - _chunkWidth,
                    currentChunkPosition.z
@@ -67,7 +74,7 @@ public class ChunkGenerator : MonoBehaviour
             SpawnChunk(currentChunkPosition.x - _chunkWidth, currentChunkPosition.z, _valueOnWestSpawn);
         }
         else if (playerPosition.z > currentChunkPosition.z + _radiusToGenerate &&
-                !_chunkExistenceChecker.ChunkExists
+                !_chunkExistenceChecker.IsChunkExists
                    (_generatedChunksPositionList,
                    currentChunkPosition.x,
                    currentChunkPosition.z + _chunkWidth
@@ -77,7 +84,7 @@ public class ChunkGenerator : MonoBehaviour
             SpawnChunk(currentChunkPosition.x, currentChunkPosition.z + _chunkWidth, _valueOnSouthSpawn);
         }
         else if (playerPosition.z < currentChunkPosition.z - _radiusToGenerate &&
-                 !_chunkExistenceChecker.ChunkExists
+                 !_chunkExistenceChecker.IsChunkExists
                    (_generatedChunksPositionList,
                    currentChunkPosition.x,
                    currentChunkPosition.z - _chunkWidth

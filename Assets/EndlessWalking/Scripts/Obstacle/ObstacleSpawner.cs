@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ObstacleSpawner
 {
+    // The distance from the center of chunk within which obstacles will be generated.
     private int _spawnRadius = 3;
 
     public void SpawnObstacle(ObstacleSO obstacleSO, float chunkXPosition, float chunkZPosition)

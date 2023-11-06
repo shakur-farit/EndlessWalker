@@ -4,7 +4,9 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class PlayerMovement : MonoBehaviour
 {
-    public float _movementSpeed = 5f;
+    [Header("Movement Settings")]
+    [Tooltip("The speed at which to move the player")]
+    [SerializeField] private float _movementSpeed = 5f;
 
     private Rigidbody _rigidbody;
 

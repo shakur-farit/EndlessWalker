@@ -6,6 +6,7 @@ public class PoolingManager : MonoBehaviour
 {
     public static PoolingManager Instance;
 
+    [Tooltip("Populate with the object that should be placed in the pool")]
     [SerializeField] private PoolItem[] _poolItems;
 
     private Dictionary<int, Queue<GameObject>> _poolQueue = new Dictionary<int, Queue<GameObject>>();

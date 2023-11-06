@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class ChunkRotator
 {
-    private const float _valueOnNorthEntrance = 180f;
-    private const float _valueOnSouthEntrance = 0f;
-    private const float _valueOnEastEntrance = 90f;
-    private const float _valueOnWestEntrance = 270f;
+    // The value of the starting rotation position of a chunk when the entrance is facing...
+    private const float _valueOnNorthEntrance = 180f; // Notrh
+    private const float _valueOnSouthEntrance = 0f; // South
+    private const float _valueOnEastEntrance = 90f; // East
+    private const float _valueOnWestEntrance = 270f; // West
 
     public Quaternion GetValueToRotate(ChunkSO chunk, float valueToActualRotate)
     {
