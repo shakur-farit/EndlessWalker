@@ -74,7 +74,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2077762798836419196, guid: 9bdca5e69db1845c2a67c7508c2496f2, type: 3}
       propertyPath: m_Name
-      value: Chunk_Skeleton
+      value: Chunk_Brown_Skeleton
       objectReference: {fileID: 0}
     - target: {fileID: 4579676990283433060, guid: 9bdca5e69db1845c2a67c7508c2496f2, type: 3}
       propertyPath: m_LocalPosition.x

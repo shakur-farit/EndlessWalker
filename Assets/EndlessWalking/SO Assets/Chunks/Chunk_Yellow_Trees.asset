@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2abaf5961e15f8469881163b6238715, type: 3}
-  m_Name: Chunk_Other_Skeleton
+  m_Name: Chunk_Yellow_Trees
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 3151346068619293708, guid: 46778469f60c76842ac1fb2fa63f926f, type: 3}
-  ObstacleList: {fileID: 11400000, guid: 0cc864c2bfb11c04d8b47dd13535fe7c, type: 2}
+  Prefab: {fileID: 2077762798836419196, guid: 7516cc1bef3393243a0814c668a09744, type: 3}
+  ObstacleList: {fileID: 11400000, guid: 6cf9e5485c5d5fa40b6f58bc75d3681f, type: 2}
   HasBorders: 0
   EntranceConfig:
     EntranceAmount: 

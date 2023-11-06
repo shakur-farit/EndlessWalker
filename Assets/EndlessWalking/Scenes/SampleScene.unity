@@ -428,6 +428,15 @@ MonoBehaviour:
   - PoolObject: {fileID: 3928719045734982923, guid: d5229686b0bc248beaefc5e7dc8c547b, type: 3}
     PoolAmount: 5
     GrowAble: 1
+  - PoolObject: {fileID: 2077762798836419196, guid: 88d83c88ffc28a745971a9ab9bbba8d3, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+  - PoolObject: {fileID: 3151346068619293708, guid: a6981c7e9fb000e45bd7d2167082a145, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
+  - PoolObject: {fileID: 2077762798836419196, guid: 7516cc1bef3393243a0814c668a09744, type: 3}
+    PoolAmount: 5
+    GrowAble: 1
 --- !u!4 &1050243751
 Transform:
   m_ObjectHideFlags: 0
@@ -476,7 +485,6 @@ MonoBehaviour:
   _player: {fileID: 592425878}
   _chunkWidth: 10
   _radiusToGenerate: 5
-  _generatedChunksPositionList: []
 --- !u!4 &1734973907
 Transform:
   m_ObjectHideFlags: 0

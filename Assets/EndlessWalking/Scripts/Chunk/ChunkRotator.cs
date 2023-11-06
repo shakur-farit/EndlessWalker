@@ -1,39 +1,25 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ChunkRotator
 {
-    // The value of the starting rotation position of a chunk when the entrance is facing...
-    private const float _valueOnNorthEntrance = 180f; // Notrh
-    private const float _valueOnSouthEntrance = 0f; // South
-    private const float _valueOnEastEntrance = 90f; // East
-    private const float _valueOnWestEntrance = 270f; // West
+    // A dictionary where the keys are EntranceSide values and the values are the corresponding rotation angles.
+    private readonly Dictionary<EntranceSide, float> _entranceSideAngles = 
+        new Dictionary<EntranceSide, float>
+    {
+        { EntranceSide.North, 180f },
+        { EntranceSide.South, 0f },
+        { EntranceSide.East, 90f },
+        { EntranceSide.West, 270f }
+    };
 
     public Quaternion GetValueToRotate(ChunkSO chunk, float valueToActualRotate)
     {
         EntranceSide[] sides = chunk.EntranceConfig.EntranceAmount;
-
         EntranceSide randomEntranceSide = sides[Random.Range(0, sides.Length - 1)];
 
-        Quaternion rotation = Quaternion.identity;
-
-        switch (randomEntranceSide)
-        {
-            case EntranceSide.North:
-                rotation = Quaternion.Euler(0f, _valueOnNorthEntrance + valueToActualRotate, 0f);
-                break;
-
-            case EntranceSide.South:
-                rotation = Quaternion.Euler(0f, _valueOnSouthEntrance + valueToActualRotate, 0f);
-                break;
-
-            case EntranceSide.East:
-                rotation = Quaternion.Euler(0f, _valueOnEastEntrance + valueToActualRotate, 0f);
-                break;
-
-            case EntranceSide.West:
-                rotation = Quaternion.Euler(0f, _valueOnWestEntrance + valueToActualRotate, 0f);
-                break;
-        }
+        float angle = _entranceSideAngles[randomEntranceSide] + valueToActualRotate;
+        Quaternion rotation = Quaternion.Euler(0f, angle, 0f);
 
         return rotation;
     }

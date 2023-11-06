@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,10 +25,10 @@ public class ChunkGenerator : MonoBehaviour
     private ChunkRotator _chunkRotator;
 
     // Value for the correct rotate at chunk spawned on...
-    private const float _valueOnNorthSpawn = 180f; // north side
-    private const float _valueOnSouthSpawn = 0f; // south side
-    private const float _valueOnEastSpawn = 90f; // east side
-    private const float _valueOnWestSpawn = 270f; // west side
+    private const float _valueToNorthSpawn = 180f; // north side
+    private const float _valueToSouthSpawn = 0f; // south side
+    private const float _valueToEastSpawn = 90f; // east side
+    private const float _valueToWestSpawn = 270f; // west side
 
     private void Start()
     {
@@ -48,50 +49,50 @@ public class ChunkGenerator : MonoBehaviour
     private void TryToSpawn()
     {
         Vector3 playerPosition = _player.position;
+        Vector3 currentChunkPosition = _playerChunkPositionFinder
+            .FindChunkOnPlayerPosition(_generatedChunksPositionList, _player.transform);
 
-        Vector3 currentChunkPosition = _playerChunkPositionFinder.
-            FindChunkOnPlayerPosition(_generatedChunksPositionList, _player.transform);
+        Dictionary<Func<bool>, Action> spawnConditions = new Dictionary<Func<bool>, Action>
+    {
+        { 
+            () => playerPosition.x > currentChunkPosition.x + _radiusToGenerate, 
+            () => TrySpawnChunk(currentChunkPosition.x + _chunkWidth, 
+            currentChunkPosition.z, _valueToEastSpawn) 
+        },
+        { 
+            () => playerPosition.x < currentChunkPosition.x - _radiusToGenerate, 
+            () => TrySpawnChunk(currentChunkPosition.x - _chunkWidth, 
+            currentChunkPosition.z, _valueToWestSpawn) 
+        },
+        { 
+             () => playerPosition.z > currentChunkPosition.z + _radiusToGenerate, 
+             () => TrySpawnChunk(currentChunkPosition.x, 
+             currentChunkPosition.z + _chunkWidth, _valueToSouthSpawn) 
+        },
+        { 
+             () => playerPosition.z < currentChunkPosition.z - _radiusToGenerate, 
+             () => TrySpawnChunk(currentChunkPosition.x, 
+             currentChunkPosition.z - _chunkWidth, _valueToNorthSpawn) 
+        }
+    };
 
-        // Spawn chunk when player go beyond the _radiusToGenerate in a certain direction
-        if (playerPosition.x > currentChunkPosition.x + _radiusToGenerate && 
-            !_chunkExistenceChecker.IsChunkExists
-               ( _generatedChunksPositionList,
-               currentChunkPosition.x + _chunkWidth,
-               currentChunkPosition.z
-               )
-           )
+        foreach (var condition in spawnConditions)
         {
-            SpawnChunk(currentChunkPosition.x + _chunkWidth, currentChunkPosition.z, _valueOnEastSpawn);
+            if (condition.Key())
+            {
+                condition.Value();
+                break;
+            }
         }
-        else if (playerPosition.x < currentChunkPosition.x - _radiusToGenerate && 
-                !_chunkExistenceChecker.IsChunkExists
-                   (_generatedChunksPositionList,
-                   currentChunkPosition.x - _chunkWidth,
-                   currentChunkPosition.z
-                   )
-                )
+    }
+
+    private void TrySpawnChunk(float currentChunkXPosition, 
+        float currentChunkZPosition, float valueToActialSideSpawn)
+    {
+        if (!_chunkExistenceChecker.IsChunkExists(_generatedChunksPositionList, 
+            currentChunkXPosition, currentChunkZPosition))
         {
-            SpawnChunk(currentChunkPosition.x - _chunkWidth, currentChunkPosition.z, _valueOnWestSpawn);
-        }
-        else if (playerPosition.z > currentChunkPosition.z + _radiusToGenerate &&
-                !_chunkExistenceChecker.IsChunkExists
-                   (_generatedChunksPositionList,
-                   currentChunkPosition.x,
-                   currentChunkPosition.z + _chunkWidth
-                   )
-                )
-        {
-            SpawnChunk(currentChunkPosition.x, currentChunkPosition.z + _chunkWidth, _valueOnSouthSpawn);
-        }
-        else if (playerPosition.z < currentChunkPosition.z - _radiusToGenerate &&
-                 !_chunkExistenceChecker.IsChunkExists
-                   (_generatedChunksPositionList,
-                   currentChunkPosition.x,
-                   currentChunkPosition.z - _chunkWidth
-                   )
-                )
-        {
-            SpawnChunk(currentChunkPosition.x, currentChunkPosition.z - _chunkWidth, _valueOnNorthSpawn);
+            SpawnChunk(currentChunkXPosition, currentChunkZPosition, valueToActialSideSpawn);
         }
     }
 
@@ -119,7 +120,7 @@ public class ChunkGenerator : MonoBehaviour
     {
         List<ChunkSO> chunks = _chunkListSO.ChunkList;
 
-        int randomIndex = Random.Range(0, chunks.Count - 1);
+        int randomIndex = UnityEngine.Random.Range(0, chunks.Count - 1);
 
         return chunks[randomIndex];
     }

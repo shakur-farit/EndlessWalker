@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2abaf5961e15f8469881163b6238715, type: 3}
-  m_Name: Chunk_AllObstacles
+  m_Name: Chunk_Brown_AllObstacles
   m_EditorClassIdentifier: 
   Prefab: {fileID: 2077762798836419196, guid: 9bdca5e69db1845c2a67c7508c2496f2, type: 3}
   ObstacleList: {fileID: 11400000, guid: 60c40eff3101e8048b62077ed72178d2, type: 2}

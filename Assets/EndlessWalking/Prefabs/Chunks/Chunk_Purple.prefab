@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4579676990283433060}
   - component: {fileID: 7937931225087622327}
   m_Layer: 0
-  m_Name: Chunk
+  m_Name: Chunk_Purple
   m_TagString: Chunk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7fa774621feb1834390d6d6c2abb9711, type: 2}
+  - {fileID: 2100000, guid: cc0f3e5a79d630e458b1f23229d2a60a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
